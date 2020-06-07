@@ -120,7 +120,7 @@ const CreatePoint: React.FC = () => {
     setSelectedUf(e.target.value);
   }
 
-  const handleSelectedCities = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleSelectedCity = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedCity(e.target.value);
   }
 
@@ -238,7 +238,7 @@ const CreatePoint: React.FC = () => {
             </div>
             <div className="field">
               <label htmlFor="city">Cidade</label>
-              <select name="city" id="uf" value={selectedCity} onChange={handleSelectedCities}>
+              <select name="city" id="uf" value={selectedCity} onChange={handleSelectedCity}>
                 <option value="0">Selecione uma cidade</option>
                     {cities.map((city: City) => 
                       (<option value={city.name} >{city.name}</option>)

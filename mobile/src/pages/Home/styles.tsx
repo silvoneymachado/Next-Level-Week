@@ -30,7 +30,15 @@ export const styles = StyleSheet.create({
 
   footer: {},
 
-  select: {},
+  select: {
+    marginTop: 32,
+  },
+
+  selectTitle: {
+    color: '#322153',
+    fontFamily: 'Roboto_500Medium',
+    fontSize: 16,
+  },
 
   input: {
     height: 60,
