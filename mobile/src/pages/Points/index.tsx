@@ -61,11 +61,6 @@ const Points = () => {
   }, [])
 
   useEffect(() => {
-    console.log({
-      city: routeParams.city,
-      uf: routeParams.uf,
-      items: selectedItems
-    })
     const getPoints = () => {
       api.get('points', {
         params: {
@@ -112,7 +107,7 @@ const Points = () => {
         <Text style={styles.description}>Encontre no mapa um ponto de coleta.</Text>
 
         <View style={styles.mapContainer}>
-          { userPosition[0] !== 0 && (
+          { userPosition[0] === 0 ? <Text style={styles.loadingMapText}>Carregando Mapa...</Text> : (
             <MapView 
               style={styles.map}
               initialRegion={{

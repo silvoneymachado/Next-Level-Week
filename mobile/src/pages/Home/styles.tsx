@@ -31,7 +31,8 @@ export const styles = StyleSheet.create({
   footer: {},
 
   select: {
-    marginTop: 32,
+    marginTop: 10,
+    marginBottom: 30
   },
 
   selectTitle: {
@@ -75,4 +76,37 @@ export const styles = StyleSheet.create({
     fontFamily: 'Roboto_500Medium',
     fontSize: 16,
   }
+});
+
+export const pickerSelectStyles = StyleSheet.create({
+  inputIOS: {
+    fontSize: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 4,
+    color: 'black',
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+  inputAndroid: {
+    fontSize: 16,
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    borderWidth: 0.5,
+    borderColor: '#322153',
+    borderRadius: 8,
+    color: 'black',
+    marginBottom: 15,
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+  iconContainer: {
+    top: 10,
+    right: 12,
+  },
+  placeholder: {
+    color: '#322153',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
 });

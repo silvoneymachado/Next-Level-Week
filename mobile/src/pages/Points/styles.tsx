@@ -96,4 +96,11 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 13,
   },
+
+  loadingMapText: {
+    flex:1,
+    textAlignVertical: 'center',
+    textAlign: 'center',
+    alignSelf: 'center'
+  },
 });

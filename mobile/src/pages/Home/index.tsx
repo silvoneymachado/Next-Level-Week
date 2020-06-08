@@ -1,8 +1,8 @@
-import React, { useState, useEffect, ChangeEvent} from 'react';
-import { Text, View ,Image, ImageBackground } from 'react-native';
-import { styles } from './styles';
+import React, { useState, useEffect} from 'react';
+import { Text, View ,Image, ImageBackground, Alert } from 'react-native';
+import { styles, pickerSelectStyles } from './styles';
 import { RectButton } from "react-native-gesture-handler";
-import { Feather as Icon } from "@expo/vector-icons";
+import { Feather as Icon, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import RNPickerSelect from 'react-native-picker-select';
 import axios from 'axios';
@@ -70,17 +70,14 @@ const Home = () => {
     getCityes();
   }, [selectedUf])
 
-  const handleSelectedUf = (value: string) => {
-    setSelectedUf(value);
-  }
-
   const handlenNavigateToPoints = () => {
-    navigation.navigate('Points', {city: selectedCity, uf: selectedUf})
+    if(selectedCity !== '0' && selectedUf !== '0'){
+      navigation.navigate('Points', {city: selectedCity, uf: selectedUf})
+    } else {
+      Alert.alert('Importante', 'Por favor selecione um estado e município');
+    }
   }
 
-  const handleSelectedCity = (value: string) => {
-    setSelectedCity(value);
-  }
 
   return(
     <ImageBackground 
@@ -95,20 +92,41 @@ const Home = () => {
       </View>
 
       <View style={styles.select}>  
-          <Text style={styles.selectTitle}>Selecione a UF</Text>
           <RNPickerSelect 
-            onValueChange={(value) => handleSelectedUf(value)}
+             placeholder={{
+              label: 'Selecione uma UF',
+              value: null,
+            }}
+            useNativeAndroidPickerStyle={false}
+            onValueChange={(value) => setSelectedUf(value)}
             items={ufs}
+            itemKey={'id'}
+            style={{
+              ...pickerSelectStyles,
+            }}
+            Icon={() => {
+              return <MaterialIcons name="arrow-drop-down" size={24} color="gray" />;
+            }}
+          />
+
+          <RNPickerSelect
+            placeholder={{
+              label: 'Selecione uma cidade',
+              value: null,
+            }}
+            useNativeAndroidPickerStyle={false}
+            onValueChange={(value) => setSelectedCity(value)}
+            items={cities}
+            itemKey={'id'}
+            style={{
+              ...pickerSelectStyles,
+            }}
+            Icon={() => {
+              return <MaterialIcons name="arrow-drop-down" size={24} color="gray" />;
+            }}
           />
       </View>
 
-      <View style={styles.select}>  
-          <Text style={styles.selectTitle}>Selecione a cidade</Text>
-          <RNPickerSelect 
-            onValueChange={(value) => handleSelectedCity(value)}
-            items={cities}
-          />
-      </View>
 
       <View style={styles.footer}>
         <RectButton style={styles.button} onPress={handlenNavigateToPoints}>
