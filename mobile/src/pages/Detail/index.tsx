@@ -14,6 +14,7 @@ interface Point{
   id: number;
   name: string
   image: string,
+  image_url: string,
   email: string,
   whatsapp: string,
   city: string,
@@ -27,6 +28,7 @@ interface Data{
   point: Point,
   items: Item[]
 };
+
 
 const Detail = () => {
   const [data, setData] = useState<Data>({} as Data)
@@ -68,7 +70,7 @@ const Detail = () => {
 
         <Image
             style={styles.pointImage}
-            source={{ uri: data.point.image}} 
+            source={{ uri: data.point.image_url}} 
         />
         <Text style={styles.pointName}>{data.point.name}</Text>
         <Text style={styles.pointItems}>

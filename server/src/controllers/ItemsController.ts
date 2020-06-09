@@ -1,16 +1,13 @@
 import knex from '../database/connection';
 import {Request, Response} from 'express';
+import { serializeObjects } from "../util/common";
 
 class ItemsController{
   async index( request: Request, response:Response ){
     try {
       const items = await knex('items').select('*');
 
-      const serializedItems = items.map(item => ({ 
-        id: item.id, 
-        title: item.title, 
-        image_url: `http://10.0.0.100:3333/uploads/${item.image}`
-      }))
+      const serializedItems = serializeObjects(items);
     
       return response.status(200).json({success: true, data: serializedItems});
     } catch (err) {

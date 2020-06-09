@@ -5,6 +5,7 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
+import Dropzone from '../../components/Dropzone';
 
 import axios from 'axios';
 import api from '../../services/api';
@@ -37,7 +38,7 @@ interface City {
   name: string
 }
 
-interface FormData {
+interface UserFormData {
   name: string,
   email: string,
   whatsapp: string
@@ -62,8 +63,9 @@ const CreatePoint: React.FC = () => {
   const [selectedCity, setSelectedCity] = useState('0');
   const [initialPsition, setinitialPosition] = useState<[number,number]>([0, 0])
   const [selectedPsition, setSelectedPosition] = useState<[number,number]>([0, 0])
-  const [formData, setFormData] = useState<FormData>({name: '', email: '', whatsapp: ''})
+  const [userFormData, setUserFormData] = useState<UserFormData>({name: '', email: '', whatsapp: ''})
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
+  const [selectedFile, setSelectedFile] = useState<File>();
   const history = useHistory();
 
   useEffect(() => {
@@ -131,8 +133,8 @@ const CreatePoint: React.FC = () => {
   const handleImputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value} = e.target;
 
-    setFormData({
-      ...formData,
+    setUserFormData({
+      ...userFormData,
       [name]: value
     })
   }
@@ -152,17 +154,23 @@ const CreatePoint: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
+    const { name, email, whatsapp} = userFormData;
     const [latitude, longitude] = selectedPsition;
+    const data = new FormData();
 
-    const data: ItemRequest = {
-      ...formData,
-      uf: selectedUf,
-      city: selectedCity,
-      latitude,
-      longitude,
-      items: selectedItems
+    data.append('name', name);
+    data.append('email', email);
+    data.append('whatsapp', whatsapp);
+    data.append('uf', selectedUf);
+    data.append('city', selectedCity);
+    data.append('latitude', String(latitude));
+    data.append('longitude', String(longitude));
+    data.append('items', selectedItems.join(','));
+    
+    if(selectedFile){
+      data.append('image', selectedFile);
     }
+
 
     const response = await api.post('points', data);
 
@@ -187,6 +195,8 @@ const CreatePoint: React.FC = () => {
       <form onSubmit={handleSubmit}>
         <h1>Cadastro do<br /> ponto de coleta</h1>
 
+        <Dropzone onFileUploaded={setSelectedFile}/>
+
         <fieldset>
           <legend>
             <h2>Dados</h2>
@@ -204,7 +214,7 @@ const CreatePoint: React.FC = () => {
             </div>
             <div className="field">
               <label htmlFor="whatsapp">Whatsapp</label>
-              <input type="text" name="whatsapp" id="whatsapp" onChange={handleImputChange}/>
+              <input type="text" name="whatsapp" id="whatsapp" placeholder="+552199999999" onChange={handleImputChange}/>
             </div>
           </div>
 
@@ -232,7 +242,7 @@ const CreatePoint: React.FC = () => {
               <select name="uf" id="uf" value={selectedUf} onChange={handleSelectedUf}>
                 <option value="0">Selecione uma UF</option>
                   {ufs.map((uf: UF) => 
-                    (<option value={uf.initials} >{uf.initials}</option>)
+                    (<option key={String(uf.id)} value={uf.initials} >{uf.initials}</option>)
                   )}
               </select>
             </div>
@@ -241,7 +251,7 @@ const CreatePoint: React.FC = () => {
               <select name="city" id="uf" value={selectedCity} onChange={handleSelectedCity}>
                 <option value="0">Selecione uma cidade</option>
                     {cities.map((city: City) => 
-                      (<option value={city.name} >{city.name}</option>)
+                      (<option key={String(city.id)} value={city.name} >{city.name}</option>)
                     )}
               </select>
             </div>
