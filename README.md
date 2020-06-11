@@ -14,9 +14,9 @@
 </p>
 
 <p align="center">
-  <a href="#-Web-API">API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-SPA">SPA - FrontEnd</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-App-mobile">App mobile</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#Web-API">API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#SPA">SPA - FrontEnd</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#App-mobile">App mobile</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#License">License</a>
 </p>
 ## Next Level Week - Rocketseat - Node, ReactJs, React Native with expo
@@ -46,7 +46,7 @@
          ![dragand drop](./images/draganddrop.png)
          ![map](./images/map.png)
 
-### App mobile 
+### App mobile
 #### [React Native](https://reactnative.dev/) + [Expo](https://expo.io/) + [Typescript](https://www.typescriptlang.org/)
    - Maps -> Google Maps Native
    - Geolocation
