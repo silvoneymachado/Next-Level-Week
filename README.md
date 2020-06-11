@@ -1,7 +1,8 @@
 # Next Level Week #1 - Ecoleta :rocket:
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/silvoneymachado/nlw_01.svg">
-
+  <a href="#Langages">
+    <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/silvoneymachado/nlw_01.svg">
+  </a>
   <a href="https://github.com/silvoneymachado/nlw_01/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/silvoneymachado/nlw_01.svg">
   </a>
@@ -9,8 +10,9 @@
   <a href="https://github.com/silvoneymachado/nlw_01/issues">
     <img alt="Repository issues" src="https://img.shields.io/github/issues/silvoneymachado/nlw_01.svg">
   </a>
-
-  <img alt="License" src="https://img.shields.io/badge/license-GLP3-lightgreen">
+  <a href="https://github.com/silvoneymachado/nlw_01/blob/master/LICENSE">
+    <img alt="License" src="https://img.shields.io/badge/license-GLP3-lightgreen">
+  </a>
 </p>
 
 <p align="center">
@@ -22,10 +24,10 @@
 ## Next Level Week - Rocketseat - Node, ReactJs, React Native with expo
 
 - This week, we created a full stack project that aims to mediate waste collection between entities/local businesses and customers/population.
-   - We've used:
-   - NodeJS in back-end
-   - ReactJS in front-ent
-   - ReactNative with expo in app mobile 
+   #### Langages:
+      - NodeJS in back-end
+      - ReactJS in front-ent
+      - ReactNative with expo in app mobile 
 ## Let's check it out:
 ### Web API 
 #### [NodeJS](https://nodejs.org/) + [Express](https://expressjs.com/) + [Knex.JS](http://knexjs.org/) + [Typescript](https://www.typescriptlang.org/) = 💖
