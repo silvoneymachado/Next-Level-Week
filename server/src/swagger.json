@@ -1,0 +1,275 @@
+  {
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "ECOLETA API",
+      "description": "Web API to integrate with ECOLETA front-end and mobile baked with NodeJs using TypeScript",
+      "license": {
+        "name": "GPL-3.0",
+        "url": "https://opensource.org/licenses/gpl-3.0"
+      },
+      "contact":{
+        "email": "slvoneymachado@gmail.com"}
+      },
+      "servers": [
+        {
+          "url": "http://localhost:3333/",
+          "description": "Local Dev"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Points",
+          "description": "Collection points"
+        },
+        {
+          "name": "Items",
+          "description": "Items to be collected"
+        }
+      ],
+      "paths": {
+        "/points": {
+          "get": {
+            "tags": [
+              "Points"
+            ],
+            "summary": "Get a list of points, based on parameters",
+            "parameters":[
+              {
+                "name": "city",
+                "in": "query",
+                "schema":{
+                  "properties": {
+                    "city": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              {
+                "name": "uf",
+                "in": "query",
+                "schema":{
+                  "properties": {
+                    "uf": {
+                      "type": "string",
+                      "maxLength": 2
+                    }
+                  }
+                }
+              },
+              {
+                "name": "items",
+                "in": "query",
+                "schema":{
+                    "items": {
+                      "type": "string",
+                      "description": "A string containing the Ids of items comma separated"
+                    }
+                  }
+                }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "$ref": "#/components/schemas/points"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "post": {
+            "tags": [
+              "Points"
+            ],
+            "summary": "Add a new collection point",
+            "requestBody": {
+              "description": "Point Object",
+              "required": true,
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/points"
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/points"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Failed. Bad post data."
+              }
+            }
+          }
+        },
+        "/points/{id}": {
+          "get": {
+            "tags": [
+              "Points"
+            ],
+            "summary": "Get cat with given ID",
+            "parameters": [
+              {
+                "in": "path",
+                "name": "id",
+                "required": true,
+                "description": "Pont with id",
+                "schema": {
+                  "$ref": "#/components/schemas/id"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type":"object",
+                      "properties":{
+                        "success": {
+                          "type": "boolean"
+                        },
+                        "data":{
+                          "type": "object",
+                          "$ref": "#/components/schemas/point"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "404": {
+                "description": "Failed. Point not found."
+              }
+            }
+          }
+        },
+        "/items": {
+          "get": {
+            "tags": [
+              "Items"
+            ],
+            "summary": "Get cat with given ID",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/items"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "components": {
+        "schemas": {
+          "id": {
+            "properties": {
+              "id": {
+                "type": "number"
+              }
+            }
+          },
+          "points": {
+            "type": "object",
+            "properties": {
+              "success": {
+                "type": "boolean"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/point"
+                }
+              }
+            }
+          },
+          "items": {
+            "type": "object",
+            "properties": {
+              "success": {
+                "type": "boolean"
+              },
+              "data": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/item"
+                }
+              }
+            }
+          },
+          "point": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "whatsapp": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "integer",
+                "format": "double"
+              },
+              "longitude": {
+                "type": "integer",
+                "format": "double"
+              },
+              "city": {
+                "type": "string"
+              },
+              "uf": {
+                "type": "string",
+                "maxLength": 2
+              },
+              "items": {
+                "type": "array",
+                "description": "Array of item id separated with comma",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/item"
+                  }
+                }
+              }
+            }
+          },
+          "item": {
+            "type": "object",
+            "properties": {
+              "image": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "image_url": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
