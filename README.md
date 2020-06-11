@@ -32,4 +32,4 @@
    - Screens:  
          ![app landing](./images/app_landing.jpg)
          ![app map](./images/app_map.jpg)
-         ![app details](./images/app_detail.jpg)
+         ![app details](./images/app_datail.jpg)
