@@ -14,9 +14,9 @@
 </p>
 
 <p align="center">
-  <a href="#-Web-API-with">API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-SPA-with">SPA - FrontEnd</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-App-mobile-with">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Web-API">API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-SPA">SPA - FrontEnd</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-App-mobile">App mobile</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#License">License</a>
 </p>
 ## Next Level Week - Rocketseat - Node, ReactJs, React Native with expo
@@ -27,14 +27,16 @@
    - ReactJS in front-ent
    - ReactNative with expo in app mobile 
 ## Let's check it out:
-### Web API with [NodeJS](https://nodejs.org/) + [Express](https://expressjs.com/) + [Knex.JS](http://knexjs.org/) + [Typescript](https://www.typescriptlang.org/) = 💖
+### Web API 
+#### [NodeJS](https://nodejs.org/) + [Express](https://expressjs.com/) + [Knex.JS](http://knexjs.org/) + [Typescript](https://www.typescriptlang.org/) = 💖
    - Documentation wih swagger
    - Versioning
    - Validation
    - Screen:
       ![swagger docs](./images/swagger_v1.png)
 
-### SPA with [ReactJS](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/)
+### SPA
+#### [ReactJS](https://reactjs.org/) + [Typescript](https://www.typescriptlang.org/)
    - Maps -> [LeafLet](https://leafletjs.com)
    - Geolocation
    - Drag and Drop Image
@@ -44,7 +46,8 @@
          ![dragand drop](./images/draganddrop.png)
          ![map](./images/map.png)
 
-### App mobile with [React Native](https://reactnative.dev/) + [Expo](https://expo.io/) + [Typescript](https://www.typescriptlang.org/)
+### App mobile 
+#### [React Native](https://reactnative.dev/) + [Expo](https://expo.io/) + [Typescript](https://www.typescriptlang.org/)
    - Maps -> Google Maps Native
    - Geolocation
    - Whatsapp Integration
