@@ -24,10 +24,10 @@
 ## Next Level Week - Rocketseat - Node, ReactJs, React Native with expo
 
 - This week, we created a full stack project that aims to mediate waste collection between entities/local businesses and customers/population.
-   #### Langages:
-      - NodeJS in back-end
-      - ReactJS in front-ent
-      - ReactNative with expo in app mobile 
+#### Langages:
+  - NodeJS in back-end
+  - ReactJS in front-ent
+  - ReactNative with expo in app mobile 
 ## Let's check it out:
 ### Web API 
 #### [NodeJS](https://nodejs.org/) + [Express](https://expressjs.com/) + [Knex.JS](http://knexjs.org/) + [Typescript](https://www.typescriptlang.org/) = 💖
