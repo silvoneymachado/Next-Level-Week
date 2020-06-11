@@ -9,6 +9,8 @@
         "url": "https://opensource.org/licenses/gpl-3.0"
       },
       "contact":{
+        "name": "Silvoney Machado",
+        "url": "https://www.linkedin.com/in/silvoney-machado/",
         "email": "slvoneymachado@gmail.com"}
       },
       "servers": [
@@ -28,7 +30,7 @@
         }
       ],
       "paths": {
-        "/points": {
+        "/v1/points": {
           "get": {
             "tags": [
               "Points"
@@ -116,12 +118,12 @@
             }
           }
         },
-        "/points/{id}": {
+        "/v1/points/{id}": {
           "get": {
             "tags": [
               "Points"
             ],
-            "summary": "Get cat with given ID",
+            "summary": "Get collection point with given ID",
             "parameters": [
               {
                 "in": "path",
@@ -159,12 +161,12 @@
             }
           }
         },
-        "/items": {
+        "/v1/items": {
           "get": {
             "tags": [
               "Items"
             ],
-            "summary": "Get cat with given ID",
+            "summary": "Get all Items to be collected",
             "responses": {
               "200": {
                 "description": "OK",
