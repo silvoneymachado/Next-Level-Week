@@ -2,11 +2,11 @@
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/silvoneymachado/nlw_01.svg">
 
-  <a href="https://github.com/silvoneymachado/ecoleta/commits/master">
+  <a href="https://github.com/silvoneymachado/nlw_01/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/silvoneymachado/nlw_01.svg">
   </a>
 
-  <a href="https://github.com/silvoneymachado/ecoleta/issues">
+  <a href="https://github.com/silvoneymachado/nlw_01/issues">
     <img alt="Repository issues" src="https://img.shields.io/github/issues/silvoneymachado/nlw_01.svg">
   </a>
 
