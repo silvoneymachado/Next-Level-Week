@@ -56,4 +56,4 @@
 
 ### License
 
-This project has GLP3 license. Look at the details in [LICENSE](LICENSE.md).
+This project has GLP3 license. Look at the details in [LICENSE](./LICENSE).
