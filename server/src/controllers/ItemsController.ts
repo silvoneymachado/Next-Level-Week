@@ -2,10 +2,11 @@ import knex from '../database/connection';
 import {Request, Response} from 'express';
 import { serializeObjects } from "../util/common";
 
+const DB_TABLE = 'items';
 class ItemsController{
   async index( request: Request, response:Response ){
     try {
-      const items = await knex('items').select('*');
+      const items = await knex(DB_TABLE).select('*');
 
       const serializedItems = serializeObjects(items);
     

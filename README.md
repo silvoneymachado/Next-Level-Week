@@ -34,6 +34,10 @@
    - Documentation wih swagger
    - Versioning
    - Validation
+   - Migrations
+   - Unit and Integrations test:
+      - Jest and Supertest
+   - Environment separation
    - Screen:
       ![swagger docs](./images/swagger_v1.png)
 

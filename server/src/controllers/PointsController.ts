@@ -52,7 +52,7 @@ class PointsController{
     } = request.body;
 
     const point = {
-      image: request.file.filename, name, email, whatsapp, latitude, longitude, city, uf
+      image: request.file ? request.file.filename : '', name, email, whatsapp, latitude, longitude, city, uf
     }
   
     const trx = await knex.transaction();
