@@ -1,6 +1,6 @@
 import path from 'path';
 import { config } from "dotenv";
-import { getEnvPath } from './src/util/common';
+import { getEnvPath } from './src/utils/common';
 
 const NODE_ENV = process.env.NODE_ENV
 

@@ -1,6 +1,6 @@
-import knex from '../database/connection';
+import knex from '../../database/connection';
 import {Request, Response} from 'express';
-import { serializeObjects } from "../util/common";
+import { serializeObjects } from "../../utils/common";
 
 const DB_TABLE = 'points';
 
@@ -51,34 +51,32 @@ class PointsController{
       name, email, whatsapp, latitude, longitude, city, uf, items
     } = request.body;
 
-    const point = {
-      image: request.file ? request.file.filename : '', name, email, whatsapp, latitude, longitude, city, uf
-    }
+    const image = request.file ? request.file.filename : '';
+
+    const point = {name, email, whatsapp, latitude, longitude, city, uf, image};
+      
   
     const trx = await knex.transaction();
   
-    try {
-        const insertedIds = await trx(DB_TABLE).insert(point); 
-      
-        const point_id = insertedIds[0];
-      
-        const pointItems = items.split(',').map((item: string) => Number(item.trim())).map((item_id: number) => ({
-          item_id, point_id: point_id
-        }));
-      
-        await trx('point_items').insert(pointItems);
 
-        await trx.commit();
+      const insertedIds = await trx(DB_TABLE).insert(point); 
+    
+      const point_id = insertedIds[0];
+    
+      const pointItems = items.split(',').map((item: string) => Number(item.trim())).map((item_id: number) => ({
+        item_id, point_id: point_id
+      }));
+    
+      await trx('point_items').insert(pointItems);
 
-        const serializedPoint = serializeObjects([point])[0];
-      
-        return response.status(200).json({success: true, data:{
-          ...serializedPoint,
-          id: point_id
-        }});
-    } catch (err) {
-      return response.status(400).json({ success: false, message: `Erro ao criar ponto: ${err}` });
-    }
+      await trx.commit();
+
+      const serializedPoint = serializeObjects([point])[0];
+    
+      return response.status(200).json({success: true, data:{
+        ...serializedPoint,
+        id: point_id
+      }});
   }
 }
 

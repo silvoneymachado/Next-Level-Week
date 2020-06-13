@@ -6,7 +6,7 @@ import swaggerUi from 'swagger-ui-express'
 import * as swaggerDocument from './swagger.json'
 import path from 'path';
 import { config } from "dotenv";
-import { getEnvPath } from './util/common';
+import { getEnvPath } from './utils/common';
 
 const NODE_ENV = process.env.NODE_ENV
 

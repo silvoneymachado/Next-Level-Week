@@ -9,17 +9,26 @@ const data = {
   'longitude': String(-23.8172390), 
   'city': 'testolandia', 
   'uf': 'JR', 
-  'items': '1,2,5'
+  'items': '1,2,5',
 }
 
 describe('Points', () => {
   it('should add a new point of collection', async (done) => {
-
     const response = await request(app)
       .post('/v1/points')
       .send(data);
 
     expect(response.status).toBe(200);
+    done();
+  });
+
+  it('should not add a new point of collection, error', async (done) => {
+    const data2 = {...data, image: ''};
+    const response = await request(app)
+      .post('/v1/points')
+      .send(data2);
+
+    expect(response.status).toBe(400);
     done();
   });
 
@@ -46,16 +55,14 @@ describe('Points', () => {
     expect(response.status).toBe(200);
     done();
   });
-});
 
-describe('Items', () => {
-  it('should return all items to be collected', async (done) => {
+  it('should not return a point by id, point not found', async (done)=> {
     const response = await request(app)
-      .get('/v1/items')
+      .get('/v1/points/99')
       .send();
 
-    expect(response.status).toBe(200);
-    expect(Array.isArray(response.body.data)).toBe(true);
+    expect(response.status).toBe(400);
     done();
-  })
+  });
+
 });

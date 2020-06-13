@@ -1,6 +1,6 @@
 import express  from 'express';
-import PointsController from './controllers/PointsController';
-import ItemsController from './controllers/ItemsController'
+import PointsController from './app/controllers/PointsController';
+import ItemsController from './app/controllers/ItemsController'
 import multer from 'multer';
 import { storage, fileFilter} from  './config/multer';
 import { celebrate} from 'celebrate'
